@@ -1,21 +1,20 @@
+import { User } from './User';
+
 interface PostProps {
-    _id: string;
     title: string;
     contents?: string;
     author?: string;
 }
 
-export const Post = ({ _id, title, contents, author }: PostProps) => {
+export const Post = ({ title, contents, author }: PostProps) => {
     return (
         <article>
-            <h3>
-                {_id} {title}
-            </h3>
+            <h3>{title}</h3>
             <div>{contents}</div>
             {author && (
                 <em>
                     <br />
-                    Written by <strong>{author}</strong>
+                    Written by <User id={author} />
                 </em>
             )}
         </article>
